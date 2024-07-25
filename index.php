@@ -439,7 +439,7 @@
 													<p class="floatright hidden-sm">T-Shirt Design</p>
 												</div>
 												<div class="fix">
-													<span x-text="rupiah(item.price)"class="pro-price floatleft"></span>
+													<span x-text="rupiah(item.price)" class="pro-price floatleft"></span>
 													<span class="pro-rating floatright">
 														<a href="#"><i class="zmdi zmdi-star"></i></a>
 														<a href="#"><i class="zmdi zmdi-star"></i></a>
