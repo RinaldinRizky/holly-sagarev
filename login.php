@@ -19,6 +19,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) === 1) {
         $_SESSION['SESSION_EMAIL'] = $email;
+        $_SESSION['SESSION_NAME'] = $row['name'];
         header("Location: welcome.php");
         exit();
     } else {
