@@ -6,7 +6,7 @@ document.addEventListener('alpine:init', () => {
             { id: 3, name: 'Women Grunge Design', img: 'womengrunge.png', price: 200000},
             { id: 4, name: 'Wild Bunch Design', img: 'wildbunch.png', price: 600000},
             { id: 5, name: 'Women Can Predict Design', img: 'wcp.png', price: 100000},
-            { id: 6, name: 'Watching Design', img: 'watching.png', price: 250000},
+            { id: 6, name: 'Watching Design', img: 'Watching.png', price: 250000},
             { id: 7, name: 'Hot-Line Vision Design', img: 'vision.png', price: 460000},
             { id: 8, name: 'Up Side Design', img: 'upside.png', price: 270000},
             { id: 9, name: 'Teddy Angel Design', img: 'teddy.png', price: 260000},
