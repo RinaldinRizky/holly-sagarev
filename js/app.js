@@ -72,7 +72,32 @@ document.addEventListener('alpine:init', () => {
             window.location.href = `${productPages[id]}?id=${id}`;
         }
     }));
-    
+
+    Alpine.store('cart', {
+        items: [],
+        total: 0,
+        quantity: 0,
+        add(newItem) {
+            const existingItem = this.items.find(item => item.id === newItem.id);
+            if (existingItem) {
+                alert('Produk ini sudah ada di keranjang!');
+                return;
+            }
+            this.items.push(newItem);
+            this.quantity++;
+            this.total += newItem.price;
+        },
+        remove(itemToRemove) {
+            const itemIndex = this.items.findIndex(item => item.id === itemToRemove.id);
+            if (itemIndex > -1) {
+                this.total -= this.items[itemIndex].price;
+                this.items.splice(itemIndex, 1);
+                this.quantity--;
+            }
+        }
+    });
+});
+
     document.addEventListener('DOMContentLoaded', () => {
         const checkoutButton = document.querySelector('#checkout-btn');
         const verifyButton = document.querySelector('#verify-btn');
@@ -165,29 +190,26 @@ document.addEventListener('alpine:init', () => {
         }
     });
     
+    // contoh pesan whatsapp 
+const formatMessage = (obj) => {
+    return `Data Costumer 
+        Nama: ${obj.name}
+        Email: ${obj.email}
+        No Hp: ${obj.phone}
+Data Pesanan
+    ${JSON.parse(obj.items).map((item) => `${item.name} (${item.quantity} x ${rupiah(item.total)}) \n` )}
+    TOTAL: ${rupiah(obj.total)}
+    TERIMAKASIH`;
+}
 
-    Alpine.store('cart', {
-        items: [],
-        total: 0,
-        quantity: 0,
-        add(newItem) {
-            const existingItem = this.items.find(item => item.id === newItem.id);
-            if (existingItem) {
-                alert('Produk ini sudah ada di keranjang!');
-                return;
-            }
-            this.items.push(newItem);
-            this.quantity++;
-            this.total += newItem.price;
-        },
-        remove(itemToRemove) {
-            const itemIndex = this.items.findIndex(item => item.id === itemToRemove.id);
-            if (itemIndex > -1) {
-                this.total -= this.items[itemIndex].price;
-                this.items.splice(itemIndex, 1);
-                this.quantity--;
-            }
-        }
-    });
-});
+
+const rupiah = (number) => {
+    return new Intl.NumberFormat('id-ID',{
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+    }).format(number);
+};
+
+
 
