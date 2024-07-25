@@ -112,30 +112,8 @@
 												<div class="cart-totals">
 													<h5 class="mb-0">Total <span class="floatright" x-text="rupiah($store.cart.total)"></span></h5>
 												</div>
-												<div class="form-container" x-show="$store.cart.items.length">
-													<form action="" id="checkoutForm">
-														<input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
-														<input type="hidden" name="total" x-model="$store.cart.total">
-														<h5>Customer Detail</h5>
-														<label for="name">
-															<span>Name</span>
-															<input type="text" name="name" id="name" required>
-														</label>
-														<label for="email">
-															<span>Email</span>
-															<input type="email" name="email" id="email" required>
-														</label>
-														<label for="phone">
-															<span>Whatsapp</span>
-															<input type="numeric" name="phone" id="phone" required autocomplete="off">
-														</label>
-														<div class="cart-bottom clearfix">
-															<button type="button" id="verify-btn" class="button-one floatright text-uppercase" data-text="Verify">Verify</button>
-														</div>
-														<div class="cart-bottom clearfix">
-															<button type="button" id="checkout-btn" class="button-one floatright text-uppercase disabled" data-text="Check out" onclick="placeOrder()" disabled>Check out</button>
-														</div>
-													</form>
+												<div class="cart-bottom clearfix" x-show="$store.cart.items.length">
+													<button type="button" id="checkout-btn" class="button-one floatright text-uppercase" data-text="Check out" onclick="placeOrder()">Check out</button>
 												</div>
 											</div>
 										</li>
