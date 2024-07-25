@@ -119,15 +119,11 @@
 														<h5>Customer Detail</h5>
 														<label for="name">
 															<span>Name</span>
-															<input type="text" name="name" id="name">
+															<input type="text" name="name" id="name" <?php echo htmlspecialchars($userName); ?>> readonly>
 														</label>
 														<label for="email">
 															<span>Email</span>
-															<input type="email" name="email" id="email">
-														</label>
-														<label for="phone">
-															<span>Whatsapp</span>
-															<input type="number" name="phone" id="phone" autocomplete="off">
+															<input type="email" name="email" id="email" value="<?php echo htmlspecialchars($_SESSION['SESSION_EMAIL']); ?>> readonly>
 														</label>
 														<div class="cart-bottom  clearfix">
 															<button href="#" class="button-one floatright text-uppercase disabled" data-text="Check out">Check out</button>

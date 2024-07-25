@@ -29,7 +29,6 @@ $params = array(
     'customer_details' => array(
         'first_name' => $_POST['name'],
         'email' => $_POST['email'],
-        'phone' => $_POST['phone'],
     ),
 );
 
