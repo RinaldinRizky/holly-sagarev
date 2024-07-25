@@ -79,7 +79,7 @@
 						<div class="row">
 							<div class="col-md-4 offset-md-4 col-7">
 								<div class="logo text-md-center">
-									<a href="index.html"><img src="img/logo/logoholly.png" alt="" /></a>
+									<a href="index.html"><img src=" img/logo/logoholly.png " alt="" /></a>
 								</div>
 							</div>
 							<div class="col-md-4 col-5">
@@ -96,24 +96,43 @@
 												</div>
 												<div class="all-cart-product clearfix">
 													<template x-for="item in $store.cart.items" :key="item.id">
-														<div class="single-cart clearfix">
-															<div class="cart-photo">
-																<img :src="`img/product/${item.img}`" :alt="item.name" />
-															</div>
-															<div class="cart-info">
-																<h5 x-text="item.name"></h5>
-																<p class="mb-0">Price : <span x-text="rupiah(item.price)"></span></p>
-																<p class="mb-0">Qty : 01 </p>
-																<span class="cart-delete"><i @click="$store.cart.remove(item)" class="zmdi zmdi-close"></i></span>
-															</div>
+													<div class="single-cart clearfix">
+														<div class="cart-photo">
+															<img :src="`img/product/${item.img}`" :alt="item.name" />
 														</div>
+														<div class="cart-info">
+															<h5 x-text="item.name"></h5>
+															<p class="mb-0">Price : <span x-text="rupiah(item.price)"></span></p>
+															<p class="mb-0">Qty : 01 </p>
+															<span class="cart-delete"><i @click="$store.cart.remove(item)" class="zmdi zmdi-close"></i></span>
+														</div>
+													</div>
 													</template>
 												</div>
 												<div class="cart-totals">
 													<h5 class="mb-0">Total <span class="floatright" x-text="rupiah($store.cart.total)"></span></h5>
 												</div>
-												<div class="cart-bottom clearfix" x-show="$store.cart.items.length">
-													<button type="button" id="checkout-btn" class="button-one floatright text-uppercase" data-text="Check out" onclick="placeOrder()">Check out</button>
+												<div class="form-container" x-show="$store.cart.items.length">
+													<form action="" id="checkoutForm">
+														<input type= "hidden" name="items" x-model="JSON.stringify($store.cart.items)">
+														<input type= "hidden" name="total" x-model="$store.cart.total">
+														<h5>Customer Detail</h5>
+														<label for="name">
+															<span>Name</span>
+															<input type="text" name="name" id="name">
+														</label>
+														<label for="email">
+															<span>Email</span>
+															<input type="email" name="email" id="email">
+														</label>
+														<label for="phone">
+															<span>Whatsapp</span>
+															<input type="number" name="phone" id="phone" autocomplete="off">
+														</label>
+														<div class="cart-bottom  clearfix">
+															<button href="#" class="button-one floatright text-uppercase disabled" data-text="Check out">Check out</button>
+														</div>
+													</form>
 												</div>
 											</div>
 										</li>
@@ -122,8 +141,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</header>		
+				</div>	
 				<!-- MAIN-MENU START -->
 				<div class="menu-toggle hamburger hamburger--emphatic d-none d-md-block">
 					<div class="hamburger-box">
