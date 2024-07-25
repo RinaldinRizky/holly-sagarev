@@ -130,7 +130,7 @@
 															<input type="number" name="phone" id="phone" autocomplete="off">
 														</label>
 														<div class="cart-bottom  clearfix">
-															<button href="#" class="button-one floatright text-uppercase disabled" data-text="Check out">Check out</button>
+															<button href="#" class="button-one floatright text-uppercase" data-text="Check out">Check out</button>
 														</div>
 													</form>
 												</div>
