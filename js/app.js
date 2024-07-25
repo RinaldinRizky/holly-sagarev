@@ -103,6 +103,14 @@ document.addEventListener('alpine:init', () => {
         }
     }))
 
+    const rupiah = (number) => {
+        return new Intl.NumberFormat('id-ID',{
+            style: 'currency',
+            currency: 'IDR',
+            minimumFractionDigits: 0,
+        }).format(number);
+    };
+    
     Alpine.store('cart', {
         items: [],
         total: 0,
@@ -194,13 +202,7 @@ Data Pesanan
     TERIMAKASIH`;
 }
 
-const rupiah = (number) => {
-    return new Intl.NumberFormat('id-ID',{
-        style: 'currency',
-        currency: 'IDR',
-        minimumFractionDigits: 0,
-    }).format(number);
-};
+
 
 
 
