@@ -194,7 +194,6 @@ Data Pesanan
     TERIMAKASIH`;
 }
 
-
 const rupiah = (number) => {
     return new Intl.NumberFormat('id-ID',{
         style: 'currency',
