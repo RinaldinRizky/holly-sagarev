@@ -431,10 +431,9 @@
 										<!-- Single-product start -->
 										<div class="single-product col-xl-3 col-lg-4 col-md-6">
 											<div class="product-img">
-												<!-- <span class="pro-label new-label">new</span> -->
 												<a @click="goToProductPage(item.id)"><img :src="`img/product/${item.img}`" :alt="item.name" /></a>
 												<div class="product-action clearfix">
-													<a @click.prevent="$store.cart.add(item)" href="#" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+													<a @click.prevent="isLoggedIn ? $store.cart.add(item) : alert('Silakan login untuk menambahkan barang ke keranjang')" href="#" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
 												</div>
 											</div>
 											<div class="product-info clearfix">
@@ -443,7 +442,7 @@
 													<p class="floatright hidden-sm">T-Shirt Design</p>
 												</div>
 												<div class="fix">
-													<span x-text="rupiah(item.price)"class="pro-price floatleft"></span>
+													<span x-text="rupiah(item.price)" class="pro-price floatleft"></span>
 													<span class="pro-rating floatright">
 														<a href="#"><i class="zmdi zmdi-star"></i></a>
 														<a href="#"><i class="zmdi zmdi-star"></i></a>
@@ -453,6 +452,7 @@
 													</span>
 												</div>
 											</div>
+										</div>
 											</template>
 										</div>
 										<!-- Single-product end -->
