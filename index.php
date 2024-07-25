@@ -119,7 +119,7 @@
 														<h5>Customer Detail</h5>
 														<label for="name">
 															<span>Name</span>
-															<input type="text" name="name" id="name" <?php echo htmlspecialchars($userName); ?>> readonly>
+															<input type="text" name="name" id="name" value="<?php echo htmlspecialchars($userName); ?>> readonly>
 														</label>
 														<label for="email">
 															<span>Email</span>
