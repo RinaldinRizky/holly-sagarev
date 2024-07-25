@@ -119,11 +119,11 @@
 														<h5>Customer Detail</h5>
 														<label for="name">
 															<span>Name</span>
-															<input type="text" name="name" id="name" value="<?php echo isset($_SESSION['SESSION_NAME']) ? $_SESSION['SESSION_NAME'] : ''; ?>" readonly> 
+															<input type="text" name="name" id="name"> 
 														</label>
 														<label for="email">
 															<span>Email</span>
-															<input type="email" name="email" id="email" value="<?php echo isset($_SESSION['SESSION_EMAIL']) ? $_SESSION['SESSION_EMAIL'] : ''; ?>" readonly> 
+															<input type="email" name="email" id="email"> 
 														</label>
 														<div class="cart-bottom  clearfix">
 															<button href="#" class="button-one floatright text-uppercase disabled" data-text="Check out">Check out</button>
