@@ -105,7 +105,7 @@ switch ($productID) {
         break;
     default:
         // URL default jika ID produk tidak cocok
-        $productPageURL = "index.php"; 
+        $productPageURL = "register.php"; 
         break;
 }
 
