@@ -183,20 +183,7 @@ checkoutButton.addEventListener('click', async function(e){
             onSuccess: function(result) {
                 // Ambil ID produk dari sessionStorage
                 let productID = sessionStorage.getItem('selectedProductID');
-                if (productID) {
-                    window.location.href = `redirect.php?product_id=${productID}`;
-                } else {
-                    console.error('Product ID not found in sessionStorage');
-                }
-            },
-            onError: function(result) {
-                console.error('Payment failed', result);
-            },
-            onPending: function(result) {
-                console.log('Payment pending', result);
-            },
-            onClose: function() {
-                console.log('Payment popup closed without completing the transaction');
+                window.location.href = `redirect.php?product_id=${productID}`;
             }
         });
     } catch (err) {
