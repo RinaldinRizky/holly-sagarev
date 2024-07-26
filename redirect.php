@@ -15,94 +15,94 @@ switch ($productID) {
         $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 3:
-        $productPageURL = "womengrunge-product.html?id=3";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 4:
-        $productPageURL = "wildbunch-product.html?id=4";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 5:
-        $productPageURL = "wcp-product.html?id=5";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 6:
-        $productPageURL = "watching-product.html?id=6";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 7:
-        $productPageURL = "vision-product.html?id=7";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 8:
-        $productPageURL = "upside-product.html?id=8";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 9:
-        $productPageURL = "teddy-product.html?id=9";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 10:
-        $productPageURL = "sacrifice-product.html?id=10";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 11:
-        $productPageURL = "retro-product.html?id=11";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 12:
-        $productPageURL = "pride-product.html?id=12";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 13:
-        $productPageURL = "mazerunner-product.html?id=13";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 14:
-        $productPageURL = "kissme-product.html?id=14";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 15:
-        $productPageURL = "kinder-world-product.html?id=15";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 16:
-        $productPageURL = "killing-product.html?id=16";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 17:
-        $productPageURL = "killer-product.html?id=17";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 18:
-        $productPageURL = "keepsmiling-product.html?id=18";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 19:
-        $productPageURL = "jumphigher-product.html?id=19";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 20:
-        $productPageURL = "ilovepizza-product.html?id=20";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 21:
-        $productPageURL = "iceworldclub-product.html?id=21";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 22:
-        $productPageURL = "hollystore-product.html?id=22";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 23:
-        $productPageURL = "hollymenu-product.html?id=23";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 24:
-        $productPageURL = "h-ice-product.html?id=24";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 25:
-        $productPageURL = "grow-product.html?id=25";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 26:
-        $productPageURL = "flower-product.html?id=26";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 27:
-        $productPageURL = "forgive-product.html?id=27";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 28:
-        $productPageURL = "confused-product.html?id=28";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 29:
-        $productPageURL = "chaijo-product.html?id=29";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 30:
-        $productPageURL = "hersmile-product.html?id=30";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 31:
-        $productPageURL = "dating-product.html?id=31";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     case 32:
-        $productPageURL = "dreamfix-product.html?id=32";
+        $productPageURL = "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link";
         break;
     default:
         // URL default jika ID produk tidak cocok
