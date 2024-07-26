@@ -426,7 +426,7 @@
 												<!-- <span class="pro-label new-label">new</span> -->
 												<a @click="goToProductPage(item.id)"><img :src="`img/product/${item.img}`" :alt="item.name" /></a>
 												<div class="product-action clearfix">
-													<a @click.prevent="$store.cart.add(item)" href="#" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
+													<a @click.prevent="selectProduct(item.id); $store.cart.add(item)" href="#" data-bs-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="zmdi zmdi-shopping-cart-plus"></i></a>
 												</div>
 											</div>
 											<div class="product-info clearfix">
