@@ -19,7 +19,7 @@ $productDriveLinks = [
 13 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
 14 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
 15 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
-31 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
+31 => "https://drive.google.com/drive/folders/1RXobWMQ3wevcn5BU8XcZyjyEhw4SBd-k?usp=sharing",
 ];
 
 // URL default jika ID produk tidak ditemukan
