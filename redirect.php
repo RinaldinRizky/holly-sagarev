@@ -1,6 +1,6 @@
 <?php
 // Ambil ID produk dari parameter URL
-$productID = $_GET['product_id']; 
+$productID = $_GET['products']; 
 
 // Atur URL default jika ID produk tidak ditemukan
 $productPageURL = "register.php";
