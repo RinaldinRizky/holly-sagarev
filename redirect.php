@@ -3,8 +3,8 @@
 $productID = isset($_GET['product_id']) ? $_GET['product_id'] : null;
 
 
-// Atur URL default jika ID produk tidak ditemukan
-$productPageURL = "register.php";
+// // Atur URL default jika ID produk tidak ditemukan
+// $productPageURL = "register.php";
 
 // Tentukan URL halaman produk berdasarkan ID produk
 switch ($productID) {
@@ -106,7 +106,7 @@ switch ($productID) {
         break;
     default:
         // URL default jika ID produk tidak cocok
-        $productPageURL = "register.php"; 
+        $productPageURL = "https://drive.google.com/drive/folders/1jAvBCUlJbO-n3dhyNeRN7syjL9xYXyrR?usp=drive_link"; 
         break;
 }
 
