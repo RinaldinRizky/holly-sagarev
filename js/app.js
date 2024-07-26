@@ -192,7 +192,7 @@ checkoutButton.addEventListener('click', async function(e){
         // console.log(token);
         function payWithMidtrans() {
             // Simulasi proses pembayaran
-            window.snap.pay('dummy_transaction_token', {
+            window.snap.pay(token, {
                 onSuccess: function(result) {
                     // Panggil completeTransaction setelah pembayaran sukses
                     Alpine.store('products').completeTransaction();
