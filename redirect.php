@@ -3,7 +3,7 @@
 $productID = $_GET['product_id']; 
 
 // Atur URL default jika ID produk tidak ditemukan
-$productPageURL = "index.php";
+$productPageURL = "register.php";
 
 // Tentukan URL halaman produk berdasarkan ID produk
 switch ($productID) {
