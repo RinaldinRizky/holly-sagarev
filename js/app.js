@@ -1,4 +1,35 @@
 document.addEventListener('alpine:init', () => {
+    Alpine.store('cart', {
+        items: JSON.parse(sessionStorage.getItem('cartItems')) || [],
+        total: 0,
+        quantity: 0,
+
+        init() {
+            this.calculateTotal();
+        },
+
+        add(item) {
+            this.items.push(item);
+            this.saveToSessionStorage();
+            this.calculateTotal();
+        },
+
+        remove(item) {
+            this.items = this.items.filter(i => i.id !== item.id);
+            this.saveToSessionStorage();
+            this.calculateTotal();
+        },
+
+        saveToSessionStorage() {
+            sessionStorage.setItem('cartItems', JSON.stringify(this.items));
+        },
+
+        calculateTotal() {
+            this.total = this.items.reduce((acc, item) => acc + item.price, 0);
+            this.quantity = this.items.length;
+        }
+    });
+    
     Alpine.data('products', () => ({
         items: [
             { id: 1, name: 'Summer Adventure Design', img: 'summer.png', price: 400000},
@@ -34,76 +65,64 @@ document.addEventListener('alpine:init', () => {
             { id: 31, name: 'Dating Design', img: 'dating.png', price: 360000},
             { id: 32, name: 'Dream Design', img: 'dreamfix.png', price: 370000},
         ],
+        selectedProduct: null,
+        init() {
+            this.loadSelectedProduct();
+        },
         selectProduct(id) {
-            this.selectedProductId = id;
-            // Simpan ID produk yang dipilih ke sessionStorage
-            sessionStorage.setItem('selectedProductID', id);
+            console.log(`Selected product ID: ${id}`);
+            sessionStorage.setItem('selectedProductID',  id.toString());;
+            console.log(`SessionStorage setelah penyimpanan:`, sessionStorage.getItem('selectedProductID'));
+            this.loadSelectedProduct();
+            // this.goToProductPage(id);
+        },
+        loadSelectedProduct() {
+            const id = sessionStorage.getItem('selectedProductID');
+            if (id) {
+                this.selectedProduct = this.items.find(item => item.id.toString() === id);
+                console.log(`Produk yang dipilih:`, this.selectedProduct);
+            }
         },
         goToProductPage(id) {
-            if (id === 1) {
-                window.location.href = `summer-product.html?id=${id}`;
-            } else if (id === 2) {
-                window.location.href = `aura-product.html?id=${id}`;
-            }else if (id === 3) {
-                window.location.href = `womengrunge-product.html?id=${id}`;
-            }else if (id === 4) {
-                window.location.href = `wildbunch-product.html?id=${id}`;
-            }else if (id === 5) {
-                window.location.href = `womenpredict-product.html?id=${id}`;
-            }else if (id === 6) {
-                window.location.href = `watching-product.html?id=${id}`;
-            }else if (id === 7) {
-                window.location.href = `visionhotline-product.html?id=${id}`;
-            }else if (id === 8) {
-                window.location.href = `upside-product.html?id=${id}`;
-            }else if (id === 9) {
-                window.location.href = `teddy-product.html?id=${id}`;
-            }else if (id === 10) {
-                window.location.href = `sacrifice-product.html?id=${id}`;
-            }else if (id === 11) {
-                window.location.href = `retrochild-product.html?id=${id}`;
-            }else if (id === 12) {
-                window.location.href = `pride-product.html?id=${id}`;
-            }else if (id === 13) {
-                window.location.href = `maze-product.html?id=${id}`;
-            }else if (id === 14) {
-                window.location.href = `kissme-product.html?id=${id}`;
-            }else if (id === 15) {
-                window.location.href = `kinder-product.html?id=${id}`;
-            }else if (id === 16) {
-                window.location.href = `killinglove-product.html?id=${id}`;
-            }else if (id === 17) {
-                window.location.href = `killer-product.html?id=${id}`;
-            }else if (id === 18) {
-                window.location.href = `keepsmile-product.html?id=${id}`;
-            }else if (id === 19) {
-                window.location.href = `jumphigher-product.html?id=${id}`;
-            }else if (id === 20) {
-                window.location.href = `ilovepizza-product.html?id=${id}`;
-            }else if (id === 21) {
-                window.location.href = `iceworld-product.html?id=${id}`;
-            }else if (id === 22) {
-                window.location.href = `hollystore-product.html?id=${id}`;
-            }else if (id === 23) {
-                window.location.href = `hollymenu-product.html?id=${id}`;
-            }else if (id === 24) {
-                window.location.href = `h-ice-product.html?id=${id}`;
-            }else if (id === 25) {
-                window.location.href = `growpassion-product.html?id=${id}`;
-            }else if (id === 26) {
-                window.location.href = `secretflower-product.html?id=${id}`;
-            }else if (id === 27) {
-                window.location.href = `forgivegod-product.html?id=${id}`;
-            }else if (id === 28) {
-                window.location.href = `confused-product.html?id=${id}`;
-            }else if (id === 29) {
-                window.location.href = `chaijo.html?id=${id}`;
-            }else if (id === 30) {
-                window.location.href = `hersmile-product.html?id=${id}`;
-            }else if (id === 31) {
-                window.location.href = `dating-product.html?id=${id}`;
-            }else if (id === 32) {
-                window.location.href = `dream-product.html?id=${id}`;
+            const urlMap = {
+                1: 'summer-product.html',
+                2: 'aura-product.html',
+                3: 'womengrunge-product.html',
+                4: 'wildbunch-product.html',
+                5: 'womenpredict-product.html',
+                6: 'watching-product.html',
+                7: 'visionhotline-product.html',
+                8: 'upside-product.html',
+                9: 'teddy-product.html',
+                10: 'sacrifice-product.html',
+                11: 'retrochild-product.html',
+                12: 'pride-product.html',
+                13: 'maze-product.html',
+                14: 'kissme-product.html',
+                15: 'kinder-product.html',
+                16: 'killinglove-product.html',
+                17: 'killer-product.html',
+                18: 'keepsmile-product.html',
+                19: 'jumphigher-product.html',
+                20: 'ilovepizza-product.html',
+                21: 'iceworld-product.html',
+                22: 'hollystore-product.html',
+                23: 'hollymenu-product.html',
+                24: 'h-ice-product.html',
+                25: 'growpassion-product.html',
+                26: 'secretflower-product.html',
+                27: 'forgivegod-product.html',
+                28: 'confused-product.html',
+                29: 'chaijo.html',
+                30: 'hersmile-product.html',
+                31: 'dating-product.html',
+                32: 'dream-product.html'
+            };
+
+            if (urlMap[id]) {
+                window.location.href = `${urlMap[id]}?id=${id}`;
+            } else {
+                console.error('ID produk tidak ditemukan');
             }
         }
     }))
@@ -181,9 +200,18 @@ checkoutButton.addEventListener('click', async function(e){
         // console.log(token);
         window.snap.pay(token, {
             onSuccess: function(result) {
-                // Ambil ID produk dari sessionStorage
-                let productID = sessionStorage.getItem('selectedProductID');
+              // Ambil ID produk dari sessionStorage
+            let productID = sessionStorage.getItem('selectedProductID');
+
+              // Periksa apakah productID ada nilainya
+            if (productID) {
+                console.log("ID produk yang dikirim:", productID);
                 window.location.href = `redirect.php?product_id=${productID}`;
+            } else {
+                console.error("ID produk tidak ditemukan dalam sessionStorage");
+                // Tampilkan pesan error atau arahkan ke halaman error
+                alert("Terjadi kesalahan. Silakan coba lagi.");
+            }
             }
         });
     } catch (err) {
