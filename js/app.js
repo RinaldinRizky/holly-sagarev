@@ -1,34 +1,34 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.store('cart', {
-        items: JSON.parse(sessionStorage.getItem('cartItems')) || [],
-        total: 0,
-        quantity: 0,
+    // Alpine.store('cart', {
+    //     items: JSON.parse(sessionStorage.getItem('cartItems')) || [],
+    //     total: 0,
+    //     quantity: 0,
 
-        init() {
-            this.calculateTotal();
-        },
+    //     init() {
+    //         this.calculateTotal();
+    //     },
 
-        add(item) {
-            this.items.push(item);
-            this.saveToSessionStorage();
-            this.calculateTotal();
-        },
+    //     add(item) {
+    //         this.items.push(item);
+    //         this.saveToSessionStorage();
+    //         this.calculateTotal();
+    //     },
 
-        remove(item) {
-            this.items = this.items.filter(i => i.id !== item.id);
-            this.saveToSessionStorage();
-            this.calculateTotal();
-        },
+    //     remove(item) {
+    //         this.items = this.items.filter(i => i.id !== item.id);
+    //         this.saveToSessionStorage();
+    //         this.calculateTotal();
+    //     },
 
-        saveToSessionStorage() {
-            sessionStorage.setItem('cartItems', JSON.stringify(this.items));
-        },
+    //     saveToSessionStorage() {
+    //         sessionStorage.setItem('cartItems', JSON.stringify(this.items));
+    //     },
 
-        calculateTotal() {
-            this.total = this.items.reduce((acc, item) => acc + item.price, 0);
-            this.quantity = this.items.length;
-        }
-    });
+    //     calculateTotal() {
+    //         this.total = this.items.reduce((acc, item) => acc + item.price, 0);
+    //         this.quantity = this.items.length;
+    //     }
+    // });
     
     Alpine.data('products', () => ({
         items: [
