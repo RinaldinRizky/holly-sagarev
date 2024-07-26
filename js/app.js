@@ -34,7 +34,6 @@ document.addEventListener('alpine:init', () => {
             { id: 31, name: 'Dating Design', img: 'dating.png', price: 360000},
             { id: 32, name: 'Dream Design', img: 'dreamfix.png', price: 370000},
         ],
-        selectedProductId: null,
         selectProduct(id) {
             this.selectedProductId = id;
             // Simpan ID produk yang dipilih ke sessionStorage
