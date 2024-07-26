@@ -205,7 +205,7 @@
 						<div class="single-banner banner-2">
 							<a class="banner-thumb" href="#"><img src="img/banner/grunge.png" alt="" /></a>
 							<div class="banner-brief">
-								<h2 class="banner-title">Women Grunge</h2>
+								<h2 class="banner-title">Women Grunge 2</h2>
 								<p class="hidden-md hidden-sm d-none d-md-block">This is the new gallery 2024 for Design T-Shirt Trends</p>
 							</div>
 						</div>
