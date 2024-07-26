@@ -47,7 +47,7 @@ document.addEventListener('alpine:init', () => {
                 window.location.href = `redirect.php?product_id=${productID}`;
             } else {
                 // Jika productID tidak ditemukan, arahkan ke halaman kesalahan atau lainnya
-                window.location.href = "error-page.html"; // Atur sesuai kebutuhan
+                console.error("Product ID tidak ditemukan di sessionStorage."); // Atur sesuai kebutuhan
             }
         },
         goToProductPage(id) {
@@ -190,12 +190,24 @@ checkoutButton.addEventListener('click', async function(e){
         });
         const token = await response.text();
         // console.log(token);
-        window.snap.pay(token, {
-            onSuccess: function(result){
-                // Memanggil fungsi completeTransaction setelah pembayaran berhasil
-                Alpine.store('products').completeTransaction(result.token);
-            }
-        });
+        function payWithMidtrans() {
+            // Simulasi proses pembayaran
+            window.snap.pay('dummy_transaction_token', {
+                onSuccess: function(result) {
+                    // Panggil completeTransaction setelah pembayaran sukses
+                    Alpine.store('products').completeTransaction();
+                },
+                onPending: function(result) {
+                    console.log('Transaction Pending: ', result);
+                },
+                onError: function(result) {
+                    console.error('Transaction Error: ', result);
+                },
+                onClose: function() {
+                    console.log('Transaction closed without completing');
+                }
+            });
+        }
     } catch (err) {
         console.log(err.message);
     }
