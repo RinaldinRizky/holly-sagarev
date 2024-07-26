@@ -200,10 +200,7 @@ checkoutButton.addEventListener('click', async function(e){
         // console.log(token);
         window.snap.pay(token, {
             onSuccess: function(result) {
-              // Ambil ID produk dari sessionStorage
             let productID = sessionStorage.getItem('selectedProductID');
-
-              // Periksa apakah productID ada nilainya
             if (productID) {
                 console.log("ID produk yang dikirim:", productID);
                 window.location.href = `redirect.php?product_id=${productID}`;
