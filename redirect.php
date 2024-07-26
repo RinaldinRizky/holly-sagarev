@@ -10,7 +10,7 @@ $productDriveLinks = [
 4 => "https://drive.google.com/drive/folders/1qmprfU-AmgQzp0aKh0T6JiqWIQHCoKn8?usp=sharing",
 5 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
 6 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
-7 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
+7 => "https://drive.google.com/drive/folders/1RQcSOMmdgN6Ne_p8XZ_M1E_7nuyb9B8M?usp=sharing",
 8 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
 9 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
 10 => "https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link",
