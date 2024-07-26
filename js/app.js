@@ -40,6 +40,16 @@ document.addEventListener('alpine:init', () => {
             // Simpan ID produk yang dipilih ke sessionStorage
             sessionStorage.setItem('selectedProductID', id);
         },
+        completeTransaction(token) {
+            // Pastikan productID diambil dari sessionStorage
+            let productID = sessionStorage.getItem('selectedProductID');
+            if (productID) {
+                window.location.href = `redirect.php?product_id=${productID}`;
+            } else {
+                // Jika productID tidak ditemukan, arahkan ke halaman kesalahan atau lainnya
+                window.location.href = "error-page.html"; // Atur sesuai kebutuhan
+            }
+        },
         goToProductPage(id) {
             if (id === 1) {
                 window.location.href = `summer-product.html?id=${id}`;
@@ -182,9 +192,8 @@ checkoutButton.addEventListener('click', async function(e){
         // console.log(token);
         window.snap.pay(token, {
             onSuccess: function(result){
-                // Misalkan Anda sudah menyimpan product_id di sessionStorage saat pengguna memilih produk
-                let productID = sessionStorage.getItem('selectedProductID');
-                window.location.href = `redirect.php?product_id=${productID}`;
+                // Memanggil fungsi completeTransaction setelah pembayaran berhasil
+                Alpine.store('products').completeTransaction(result.token);
             }
         });
     } catch (err) {
