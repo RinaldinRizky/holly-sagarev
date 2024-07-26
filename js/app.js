@@ -190,7 +190,6 @@ checkoutButton.addEventListener('click', async function(e){
         });
         const token = await response.text();
         // console.log(token);
-        function payWithMidtrans() {
             // Simulasi proses pembayaran
             window.snap.pay(token, {
                 onSuccess: function(result) {
@@ -207,7 +206,6 @@ checkoutButton.addEventListener('click', async function(e){
                     console.log('Transaction closed without completing');
                 }
             });
-        }
     } catch (err) {
         console.log(err.message);
     }
