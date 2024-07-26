@@ -65,24 +65,24 @@ document.addEventListener('alpine:init', () => {
             { id: 31, name: 'Dating Design', img: 'dating.png', price: 360000},
             { id: 32, name: 'Dream Design', img: 'dreamfix.png', price: 370000},
         ],
-        selectedProduct: null,
-        init() {
-            this.loadSelectedProduct();
-        },
+        // selectedProduct: null,
+        // init() {
+        //     this.loadSelectedProduct();
+        // },
         selectProduct(id) {
             console.log(`Selected product ID: ${id}`);
             sessionStorage.setItem('selectedProductID',  id.toString());;
             console.log(`SessionStorage setelah penyimpanan:`, sessionStorage.getItem('selectedProductID'));
-            this.loadSelectedProduct();
+            // this.loadSelectedProduct();
             // this.goToProductPage(id);
         },
-        loadSelectedProduct() {
-            const id = sessionStorage.getItem('selectedProductID');
-            if (id) {
-                this.selectedProduct = this.items.find(item => item.id.toString() === id);
-                console.log(`Produk yang dipilih:`, this.selectedProduct);
-            }
-        },
+        // loadSelectedProduct() {
+        //     const id = sessionStorage.getItem('selectedProductID');
+        //     if (id) {
+        //         this.selectedProduct = this.items.find(item => item.id.toString() === id);
+        //         console.log(`Produk yang dipilih:`, this.selectedProduct);
+        //     }
+        // },
         goToProductPage(id) {
             const urlMap = {
                 1: 'summer-product.html',
@@ -140,6 +140,7 @@ document.addEventListener('alpine:init', () => {
             this.items.push(newItem);
             this.quantity++;
             this.total += newItem.price;
+            sessionStorage.setItem('cart', JSON.stringify(this));
             console.log(this.total);
         },
         remove(itemToRemove) {
@@ -148,6 +149,7 @@ document.addEventListener('alpine:init', () => {
                 this.total -= this.items[itemIndex].price;
                 this.items.splice(itemIndex, 1);
                 this.quantity--;
+                sessionStorage.setItem('cart', JSON.stringify(this));
                 console.log(this.total);
             }
         }
