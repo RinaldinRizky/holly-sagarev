@@ -1,35 +1,4 @@
 document.addEventListener('alpine:init', () => {
-    // Alpine.store('cart', {
-    //     items: JSON.parse(sessionStorage.getItem('cartItems')) || [],
-    //     total: 0,
-    //     quantity: 0,
-
-    //     init() {
-    //         this.calculateTotal();
-    //     },
-
-    //     add(item) {
-    //         this.items.push(item);
-    //         this.saveToSessionStorage();
-    //         this.calculateTotal();
-    //     },
-
-    //     remove(item) {
-    //         this.items = this.items.filter(i => i.id !== item.id);
-    //         this.saveToSessionStorage();
-    //         this.calculateTotal();
-    //     },
-
-    //     saveToSessionStorage() {
-    //         sessionStorage.setItem('cartItems', JSON.stringify(this.items));
-    //     },
-
-    //     calculateTotal() {
-    //         this.total = this.items.reduce((acc, item) => acc + item.price, 0);
-    //         this.quantity = this.items.length;
-    //     }
-    // });
-    
     Alpine.data('products', () => ({
         items: [
             { id: 1, name: 'Summer Adventure Design', img: 'summer.png', price: 400000},
@@ -65,24 +34,11 @@ document.addEventListener('alpine:init', () => {
             { id: 31, name: 'Dating Design', img: 'dating.png', price: 360000},
             { id: 32, name: 'Dream Design', img: 'dreamfix.png', price: 370000},
         ],
-        // selectedProduct: null,
-        // init() {
-        //     this.loadSelectedProduct();
-        // },
         selectProduct(id) {
             console.log(`Selected product ID: ${id}`);
             sessionStorage.setItem('selectedProductID',  id.toString());;
             console.log(`SessionStorage setelah penyimpanan:`, sessionStorage.getItem('selectedProductID'));
-            // this.loadSelectedProduct();
-            // this.goToProductPage(id);
         },
-        // loadSelectedProduct() {
-        //     const id = sessionStorage.getItem('selectedProductID');
-        //     if (id) {
-        //         this.selectedProduct = this.items.find(item => item.id.toString() === id);
-        //         console.log(`Produk yang dipilih:`, this.selectedProduct);
-        //     }
-        // },
         goToProductPage(id) {
             const urlMap = {
                 1: 'summer-product.html',
