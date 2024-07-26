@@ -190,22 +190,12 @@ checkoutButton.addEventListener('click', async function(e){
         });
         const token = await response.text();
         // console.log(token);
-            // Simulasi proses pembayaran
-            window.snap.pay(token, {
-                onSuccess: function(result) {
-                    // Panggil completeTransaction setelah pembayaran sukses
-                    Alpine.store('products').completeTransaction();
-                },
-                onPending: function(result) {
-                    console.log('Transaction Pending: ', result);
-                },
-                onError: function(result) {
-                    console.error('Transaction Error: ', result);
-                },
-                onClose: function() {
-                    console.log('Transaction closed without completing');
-                }
-            });
+        window.snap.pay(token, {
+            onSuccess: function(result){
+                // Memanggil fungsi completeTransaction setelah pembayaran berhasil
+                Alpine.store('products').completeTransaction(result.token);
+            }
+        });
     } catch (err) {
         console.log(err.message);
     }
