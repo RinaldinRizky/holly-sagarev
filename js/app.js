@@ -34,6 +34,12 @@ document.addEventListener('alpine:init', () => {
             { id: 31, name: 'Dating Design', img: 'dating.png', price: 360000},
             { id: 32, name: 'Dream Design', img: 'dreamfix.png', price: 370000},
         ],
+        selectedProductId: null,
+        selectProduct(id) {
+            this.selectedProductId = id;
+            // Simpan ID produk yang dipilih ke sessionStorage
+            sessionStorage.setItem('selectedProductID', id);
+        },
         goToProductPage(id) {
             if (id === 1) {
                 window.location.href = `summer-product.html?id=${id}`;
@@ -174,7 +180,13 @@ checkoutButton.addEventListener('click', async function(e){
         });
         const token = await response.text();
         // console.log(token);
-            window.snap.pay(token)
+        window.snap.pay(token, {
+            onSuccess: function(result){
+                // Misalkan Anda sudah menyimpan product_id di sessionStorage saat pengguna memilih produk
+                let productID = sessionStorage.getItem('selectedProductID');
+                window.location.href = `redirect.php?product_id=${productID}`;
+            }
+        });
     } catch (err) {
         console.log(err.message);
     }
