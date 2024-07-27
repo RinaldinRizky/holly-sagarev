@@ -35,10 +35,48 @@ if (mysqli_num_rows($query) > 0) {
             <img src="/img/logo-h.png" alt="Logo" class="logo">
             <h1>Welcome, <?php echo $userName; ?></h1>
             <h1>Email Kamu :, <?php echo $userEmail; ?></h1>
+            <div class="order-history">
+                <h2>Riwayat Pesanan</h2>
+                <div id="orderList"></div>
+            </div>
             <a href="logout.php" class="logout-button">Logout</a>
             <a href="index.php" class="back-button">Back to Home</a>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const orderList = document.getElementById('orderList');
+            const orderHistory = JSON.parse(sessionStorage.getItem('orderHistory')) || [];
+
+            if (orderHistory.length === 0) {
+                orderList.innerHTML = '<p>Tidak ada riwayat pesanan.</p>';
+                return;
+            }
+
+            orderHistory.forEach(order => {
+                const orderItem = document.createElement('div');
+                orderItem.classList.add('order-item');
+                orderItem.innerHTML = `
+                    <p><strong>ID Pesanan:</strong> ${order.id}</p>
+                    <p><strong>Tanggal:</strong> ${order.date}</p>
+                    <p><strong>Total:</strong> ${rupiah(order.total)}</p>
+                    <p><strong>Produk:</strong></p>
+                    <ul>
+                        ${order.items.map(item => `<li>${item.name} - ${rupiah(item.price)}</li>`).join('')}
+                    </ul>
+                `;
+                orderList.appendChild(orderItem);
+            });
+        });
+
+        const rupiah = (number) => {
+            return new Intl.NumberFormat('id-ID',{
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0,
+            }).format(number);
+        };
+    </script>
 </body>
 </html>
 

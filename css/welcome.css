@@ -78,3 +78,24 @@ h1 {
 .back-button:hover {
     background-color: #b0487d;
 }
+
+.order-history {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.order-history h2 {
+    text-align: center;
+    color: #c9538d;
+}
+.order-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.order-item:last-child {
+    border-bottom: none;
+}

@@ -159,6 +159,22 @@ checkoutButton.addEventListener('click', async function(e){
     const message = formatMessage(objData);
     // window.open('http://wa.me/6285161181837?text=' + encodeURIComponent(message));
 
+    const order = {
+        id: Date.now(),
+        items: Alpine.store('cart').items,
+        total: Alpine.store('cart').total,
+        date: new Date().toLocaleString(),
+    };
+    
+    // Ambil riwayat pesanan yang ada dari sessionStorage
+    const orderHistory = JSON.parse(sessionStorage.getItem('orderHistory')) || [];
+
+    // Tambahkan pesanan baru ke riwayat pesanan
+    orderHistory.push(order);
+
+    // Simpan kembali ke sessionStorage
+    sessionStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
     try {
         const response = await fetch('php/placeOrder.php', {
             method: 'POST',
