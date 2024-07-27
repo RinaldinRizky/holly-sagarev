@@ -40,7 +40,7 @@
 		<!-- modernizr css -->
 		<script src="js/vendor/modernizr-3.11.2.min.js"></script>
 		<!-- Alpine Js -->
-		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
 		<!-- App -->
 		<script src="/js/app.js" async></script>
 		<!-- Midtrans -->
