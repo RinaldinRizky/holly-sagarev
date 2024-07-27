@@ -76,7 +76,7 @@ document.addEventListener('alpine:init', () => {
 
             // Jika sudah login, tambahkan item ke keranjang
             this.selectProduct(item.id);
-            $store.cart.add(item);
+            Alpine.store('cart').add(item);
         },
         goToProductPage(id) {
             const urlMap = {
