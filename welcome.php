@@ -34,7 +34,7 @@ if (mysqli_num_rows($query) > 0) {
         <div class="welcome-box">
             <img src="/img/logo-h.png" alt="Logo" class="logo">
             <h1>Welcome, <?php echo $userName; ?></h1>
-            <h1>Email Kamu :, <?php echo $userEmail; ?></h1>
+            <h1>Email Kamu : <?php echo $userEmail; ?></h1>
             <div class="order-history">
                 <h2>Riwayat Pesanan</h2>
                 <div id="orderList"></div>
