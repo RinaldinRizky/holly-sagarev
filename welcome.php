@@ -12,7 +12,9 @@ $query = mysqli_query($conn, "SELECT * FROM users WHERE email='{$_SESSION['SESSI
 if (mysqli_num_rows($query) > 0) {
     $row = mysqli_fetch_assoc($query);
     $userName = $row['name'];
+    $userEmail = $row['email'];
     $_SESSION['SESSION_NAME'] = $userName;
+    $_SESSION['SESSION_EMAIL'] = $userEmail;
     echo "<script>sessionStorage.setItem('isLoggedIn', 'true');</script>";
 } else {
     $userName = "User not found.";
@@ -32,6 +34,7 @@ if (mysqli_num_rows($query) > 0) {
         <div class="welcome-box">
             <img src="/img/logo-h.png" alt="Logo" class="logo">
             <h1>Welcome, <?php echo $userName; ?></h1>
+            <h1>Email Kamu :, <?php echo $userEmail; ?></h1>
             <a href="logout.php" class="logout-button">Logout</a>
             <a href="index.php" class="back-button">Back to Home</a>
         </div>
