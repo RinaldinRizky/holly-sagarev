@@ -39,6 +39,18 @@ document.addEventListener('alpine:init', () => {
             sessionStorage.setItem('selectedProductID',  id.toString());;
             console.log(`SessionStorage setelah penyimpanan:`, sessionStorage.getItem('selectedProductID'));
         },
+        checkLoginAndAddToCart(item) {
+            // Lakukan pengecekan login
+            if (!sessionStorage.getItem('isLoggedIn')) {
+                alert('Anda harus login terlebih dahulu.');
+                window.location.href = 'login.php';
+                return;
+            }
+
+            // Jika sudah login, tambahkan item ke keranjang
+            this.selectProduct(item.id);
+            $store.cart.add(item);
+        },
         goToProductPage(id) {
             const urlMap = {
                 1: 'summer-product.html',

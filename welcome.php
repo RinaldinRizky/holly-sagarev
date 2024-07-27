@@ -13,6 +13,7 @@ if (mysqli_num_rows($query) > 0) {
     $row = mysqli_fetch_assoc($query);
     $userName = $row['name'];
     $_SESSION['SESSION_NAME'] = $userName;
+    echo "<script>sessionStorage.setItem('isLoggedIn', 'true');</script>";
 } else {
     $userName = "User not found.";
 }
