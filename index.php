@@ -116,6 +116,15 @@
 													<form action="" id="checkoutForm">
 														<input type= "hidden" name="items" x-model="JSON.stringify($store.cart.items)">
 														<input type= "hidden" name="total" x-model="$store.cart.total">
+														<h5>Customer Detail</h5>
+														<label for="name">
+															<span>Name</span>
+															<input type="text" name="name" id="name"> 
+														</label>
+														<label for="email">
+															<span>Email</span>
+															<input type="email" name="email" id="email"> 
+														</label>
 														<div class="cart-bottom  clearfix">
 															<button href="#" class="button-one floatright text-uppercase" data-text="Check out">Check out</button>
 														</div>
