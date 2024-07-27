@@ -21,8 +21,13 @@ require_once dirname(__FILE__) . '/midtrans-php-master/Midtrans.php';
 \Midtrans\Config::$is3ds = true;
 
 session_start();
-$userName = $_SESSION['user']['name']; 
-$userEmail = $_SESSION['user']['email'];
+if (!isset($_SESSION['SESSION_EMAIL']) || !isset($_SESSION['SESSION_NAME'])) {
+    echo json_encode(['error' => 'User not logged in']);
+    exit;
+}
+
+$userName = $_SESSION['SESSION_NAME'];
+$userEmail = $_SESSION['SESSION_EMAIL'];
 
 $params = array(
     'transaction_details' => array(
