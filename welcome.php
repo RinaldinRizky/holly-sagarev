@@ -64,7 +64,7 @@ if (mysqli_num_rows($query) > 0) {
                     <ul>
                         ${order.items.map(item => `<li>${item.name} - ${rupiah(item.price)}</li>`).join('')}
                     </ul>
-                    <p><strong>Link Download:</strong> <a href="${order.link}" target="_blank">Download</a></p>
+                    <p><strong>Link Download:</strong> <a href="https://drive.google.com/drive/folders/1jDfEG1uUcPCdgk9QsVtSQEjYGchowK4p?usp=drive_link" target="_blank">Download</a></p>
                 `;
                 orderList.appendChild(orderItem);
             });
