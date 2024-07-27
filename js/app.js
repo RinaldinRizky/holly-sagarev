@@ -122,7 +122,6 @@ document.addEventListener('alpine:init', () => {
         }
     }));
 });
-window.Alpine.start();
 
 // Form Validation
 const checkoutButton = document.querySelector('.button-one');
