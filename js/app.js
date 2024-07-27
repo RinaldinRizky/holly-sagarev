@@ -1,4 +1,31 @@
 document.addEventListener('alpine:init', () => {
+    Alpine.store('cart', {
+        items: [],
+        total: 0,
+        quantity: 0,
+        add(newItem) {
+            const existingItem = this.items.find(item => item.id === newItem.id);
+            if (existingItem) {
+                alert('Produk ini sudah ada di keranjang!');
+                return;
+            }
+            this.items.push(newItem);
+            this.quantity++;
+            this.total += newItem.price;
+            sessionStorage.setItem('cart', JSON.stringify(this));
+            console.log(this.total);
+        },
+        remove(itemToRemove) {
+            const itemIndex = this.items.findIndex(item => item.id === itemToRemove.id);
+            if (itemIndex > -1) {
+                this.total -= this.items[itemIndex].price;
+                this.items.splice(itemIndex, 1);
+                this.quantity--;
+                sessionStorage.setItem('cart', JSON.stringify(this));
+                console.log(this.total);
+            }
+        }
+    });
     Alpine.data('products', () => ({
         items: [
             { id: 1, name: 'Summer Adventure Design', img: 'summer.png', price: 400000},
@@ -93,36 +120,8 @@ document.addEventListener('alpine:init', () => {
                 console.error('ID produk tidak ditemukan');
             }
         }
-    }))
-
-    Alpine.store('cart', {
-        items: [],
-        total: 0,
-        quantity: 0,
-        add(newItem) {
-            const existingItem = this.items.find(item => item.id === newItem.id);
-            if (existingItem) {
-                alert('Produk ini sudah ada di keranjang!');
-                return;
-            }
-            this.items.push(newItem);
-            this.quantity++;
-            this.total += newItem.price;
-            sessionStorage.setItem('cart', JSON.stringify(this));
-            console.log(this.total);
-        },
-        remove(itemToRemove) {
-            const itemIndex = this.items.findIndex(item => item.id === itemToRemove.id);
-            if (itemIndex > -1) {
-                this.total -= this.items[itemIndex].price;
-                this.items.splice(itemIndex, 1);
-                this.quantity--;
-                sessionStorage.setItem('cart', JSON.stringify(this));
-                console.log(this.total);
-            }
-        }
-    })
-})
+    }));
+});
 
 // Form Validation
 const checkoutButton = document.querySelector('.button-one');
