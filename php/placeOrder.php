@@ -20,6 +20,9 @@ require_once dirname(__FILE__) . '/midtrans-php-master/Midtrans.php';
 // Set 3DS transaction for credit card to true
 \Midtrans\Config::$is3ds = true;
 
+session_start();
+$userName = $_SESSION['user']['name']; 
+$userEmail = $_SESSION['user']['email'];
 
 $params = array(
     'transaction_details' => array(
@@ -28,8 +31,8 @@ $params = array(
     ),
     'item_details' => json_decode($_POST['items'], true),
     'customer_details' => array(
-        'first_name' => $_POST['name'],
-        'email' => $_POST['email'],
+        'first_name' => $userName,
+        'email' => $userEmail,
     ),
 );
 
