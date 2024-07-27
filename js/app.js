@@ -123,6 +123,33 @@ document.addEventListener('alpine:init', () => {
     }));
 });
 
+// Form Validation
+const checkoutButton = document.querySelector('.button-one');
+checkoutButton.disabled = true;
+
+const form = document.querySelector('#checkoutForm');
+
+form.addEventListener('input', function() {
+    let allFilled = true;
+
+    for (let i = 0; i < form.elements.length; i++) {
+        if (form.elements[i].type !== 'button' && form.elements[i].type !== 'submit' && !form.elements[i].readOnly && form.elements[i].type !== 'hidden') {
+            if (form.elements[i].value.trim() === '') {
+                allFilled = false;
+                break;
+            }
+        }
+    }
+
+    if (allFilled) {
+        checkoutButton.disabled = false;
+        checkoutButton.classList.remove('disabled');
+    } else {
+        checkoutButton.disabled = true;
+        checkoutButton.classList.add('disabled');
+    }
+});
+
 // Kirim Data ketika tombol checkout di klik
 checkoutButton.addEventListener('click', async function(e){
     e.preventDefault();
