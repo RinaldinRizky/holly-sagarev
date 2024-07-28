@@ -1,9 +1,8 @@
 <?php
 
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 session_start();
 if (isset($_SESSION['SESSION_EMAIL'])) {
@@ -12,7 +11,6 @@ if (isset($_SESSION['SESSION_EMAIL'])) {
 }
 
 require 'vendor/autoload.php';
-
 include 'config.php';
 $msg = "";
 
@@ -31,37 +29,34 @@ if (isset($_POST['submit'])) {
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
-                echo "<div style='display: none;'>";
                 $mail = new PHPMailer(true);
                 try {
                     //Server settings
-                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-                    $mail->isSMTP();                                            //Send using SMTP
-                    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-                    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-                    $mail->Username   = 'hollysagaofficial@gmail.com';                     //SMTP username
-                    $mail->Password   = 'gomvfmdmfmgopdww';                               //SMTP password
-                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-                    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+                    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+                    $mail->isSMTP();
+                    $mail->Host = 'smtp.gmail.com';
+                    $mail->SMTPAuth = true;
+                    $mail->Username = 'hollysagaofficial@gmail.com';
+                    $mail->Password = 'gomvfmdmfmgopdww';
+                    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                    $mail->Port = 465;
 
                     //Recipients
                     $mail->setFrom('hollysagaofficial@gmail.com');
                     $mail->addAddress($email);
 
                     //Content
-                    $mail->isHTML(true);                                  //Set email format to HTML
-                    $mail->Subject = 'no reply';
-                    $mail->Body    = 'Here is the verification link <b><a href="https://hollysaga.shop/login.php'.$code.'">https://hollysaga.shop/login.php'.$code.'</a></b>';
+                    $mail->isHTML(true);
+                    $mail->Subject = 'Account Verification';
+                    $mail->Body = 'Click here to verify your account: <a href="https://hollysaga.shop/verify.php?code='.$code.'">https://hollysaga.shop/verify.php?code='.$code.'</a>';
 
                     $mail->send();
-                    echo 'Message has been sent';
+                    $msg = "<div class='alert alert-info'>We've sent a verification link to your email address.</div>";
                 } catch (Exception $e) {
-                    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+                    $msg = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
                 }
-                echo "</div>";
-                $msg = "<div class='alert alert-info'>We've send a verification link on your email address.</div>";
             } else {
-                $msg = "<div class='alert alert-danger'>Something wrong went.</div>";
+                $msg = "<div class='alert alert-danger'>Something went wrong.</div>";
             }
         } else {
             $msg = "<div class='alert alert-danger'>Password and Confirm Password do not match</div>";
