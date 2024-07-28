@@ -45,8 +45,7 @@
 		<script src="/js/app.js" async></script>
 		<!-- Midtrans -->
 		<script type="text/javascript"
-		src="https://app.sandbox.midtrans.com/snap/snap.js"
-    data-client-key="SB-Mid-client-Z8-p-m2XpB-3iXOQ"></script>
+		src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-Z8-p-m2XpB-3iXOQ"></script>
 	</head>
 	<body>
 		<!-- WRAPPER START -->
