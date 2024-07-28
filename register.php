@@ -25,10 +25,9 @@
                     <div class="content-wthree">
                         <h2>Register Now</h2>
                         <p>Create Account If You Want Shopping In Holly Saga</p>
-                        <?php echo $msg; ?>
                         <form action="/proses.php" method="post">
-                            <input type="text" class="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['submit'])) { echo $name; } ?>" required>
-                            <input type="email" class="email" name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['submit'])) { echo $email; } ?>" required>
+                            <input type="text" class="name" name="name" placeholder="Enter Your Name" required>
+                            <input type="email" class="email" name="email" placeholder="Enter Your Email" required>
                             <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
                             <input type="password" class="confirm-password" name="confirm-password" placeholder="Enter Your Confirm Password" required>
                             <button name="submit" class="btn" type="submit">Register</button>
