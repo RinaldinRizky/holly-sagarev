@@ -13,5 +13,3 @@ if (!$conn) {
     echo "Connection Failed";
 }
 ?>
-
-<!-- die("Connection failed: " . mysqli_connect_error()); -->

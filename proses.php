@@ -2,47 +2,56 @@
 include 'config.php';
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-$nama = $_POST['name'];
+if(!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+$name = $_POST['name'];
 $email = $_POST['email'];
-$password = $_POST['password'];
-$code = md5($email.date('Y-m-d H:i:s'));
-//Import PHPMailer classes into the global namespace
-//These must be at the top of your script, not inside a function
+$password = md5($_POST['password']); // Menggunakan md5() untuk enkripsi password
+$code = md5($email . date('Y-m-d H:i:s'));
+
+// Import PHPMailer classes into the global namespace
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-//Load Composer's autoloader
+// Load Composer's autoloader
 require 'vendor/autoload.php';
 
-//Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
 try {
-    //Server settings
-    $mail->SMTPDebug = SMTP::DEBUG_OFF;                      //Enable verbose debug output
-    $mail->isSMTP();                                            //Send using SMTP
-    $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'hollysagaofficial@gmail.com';                     //SMTP username
-    $mail->Password   = 'gomvfmdmfmgopdww';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
-    $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+    // Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_OFF;
+    $mail->isSMTP();
+    $mail->Host = 'smtp.niagahoster.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'info@hollysaga.shop'; // Ganti dengan email Anda
+    $mail->Password = 'Aldingans123!'; // Ganti dengan password email Anda
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port = 465;
 
-    //Recipients
-    $mail->setFrom('hollysagaofficial@gmail.com', 'no reply');
-    $mail->addAddress($email, $name);     //Add a recipient
+    // Recipients
+    $mail->setFrom('info@hollysaga.shop', 'no reply');
+    $mail->addAddress($email, $name);
 
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
+    // Content
+    $mail->isHTML(true);
     $mail->Subject = 'Verifikasi Akun';
-    $mail->Body    = 'Hi! '.$name.' Terimakasih telah mendaftar di website ini,<br> Mohon Verifikasi Akun Kamu! <a href="https://hollysaga.shop/verify.php?code="'.$code.'">Verifikasi disini</a>' ;
-    
-    if ($mail->send()){
-            $koneksi->query("INSERT INTO data(nama, email, password, verifikasi_code) VALUES('$name','$email','$password','$code')");
+    $mail->Body = 'Hi! ' . $name . ' Terimakasih telah mendaftar di website ini,<br> Mohon Verifikasi Akun Kamu! <a href="https://hollysaga.shop/verify.php?code=' . $code . '">Verifikasi disini</a>';
 
-            echo"<script>alert('Registrasi Berhasil, Silahkan cek email untuk verifikasi akun');window.location='login.php'</script>";
+    if ($mail->send()) {
+        $sql = "INSERT INTO users (name, email, password, verifikasi_code) VALUES ('$name', '$email', '$password', '$code')";
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('Registrasi Berhasil, Silahkan cek email untuk verifikasi akun');window.location='login.php'</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     }
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
 }
+
+mysqli_close($conn);
+?>
