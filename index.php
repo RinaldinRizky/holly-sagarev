@@ -124,7 +124,7 @@
 															<input type="email" name="email" id="email"> 
 														</label>
 														<div class="cart-bottom  clearfix">
-															<button href="#" class="button-one floatright text-uppercase" data-text="Check out">Check out</button>
+															<button href="#" class="button-one floatright text-uppercase disabled" data-text="Check out">Check out</button>
 														</div>
 													</form>
 												</div>
