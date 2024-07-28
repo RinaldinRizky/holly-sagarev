@@ -25,15 +25,15 @@ try {
     // Server settings
     $mail->SMTPDebug = SMTP::DEBUG_OFF;
     $mail->isSMTP();
-    $mail->Host = 'smtp.niagahoster.com';
+    $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'info@hollysaga.shop'; // Ganti dengan email Anda
-    $mail->Password = 'Aldingans123!'; // Ganti dengan password email Anda
+    $mail->Username = 'hollysagaofficial@gmail.com';
+    $mail->Password = 'gomvfmdmfmgopdww';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port = 465;
 
     // Recipients
-    $mail->setFrom('info@hollysaga.shop', 'no reply');
+    $mail->setFrom('hollysagaofficial@gmail.com', 'no reply');
     $mail->addAddress($email, $name);
 
     // Content
