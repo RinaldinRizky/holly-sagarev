@@ -163,8 +163,7 @@ checkoutButton.addEventListener('click', async function(e){
         id: Date.now(),
         items: Alpine.store('cart').items,
         total: Alpine.store('cart').total,
-        date: new Date().toLocaleString(),
-        link: getGoogleDriveLink(productID)
+        date: new Date().toLocaleString()
     };
 
     // Ambil riwayat pesanan yang ada dari sessionStorage
