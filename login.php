@@ -4,10 +4,8 @@ if (isset($_SESSION['SESSION_EMAIL'])) {
     header("Location: welcome.php");
     die();
 }
-
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 include 'config.php';
-$msg = "";
-
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
