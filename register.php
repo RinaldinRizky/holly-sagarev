@@ -1,5 +1,4 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -9,6 +8,10 @@ if (isset($_SESSION['SESSION_EMAIL'])) {
     header("Location: welcome.php");
     die();
 }
+
+// Aktifkan laporan error
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 require 'vendor/autoload.php';
 include 'config.php';
@@ -25,7 +28,8 @@ if (isset($_POST['submit'])) {
         $msg = "<div class='alert alert-danger'>{$email} - This email address already exists.</div>";
     } else {
         if ($password === $confirm_password) {
-            $sql = "INSERT INTO users (name, email, password, code) VALUES ('{$name}', '{$email}', '{$password}', '{$code}')";
+            // Simpan pengguna dengan status 'unverified'
+            $sql = "INSERT INTO users (name, email, password, code, status) VALUES ('{$name}', '{$email}', '{$password}', '{$code}', 'unverified')";
             $result = mysqli_query($conn, $sql);
 
             if ($result) {
@@ -67,7 +71,6 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="zxx">
-
 <head>
     <title>Register Form - Holly Saga</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,7 +80,6 @@ if (isset($_POST['submit'])) {
     <script src="https://kit.fontawesome.com/af562a2a63.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon_holly.png">
 </head>
-
 <body>
     <section class="w3l-mockup-form">
         <div class="container">
@@ -96,7 +98,7 @@ if (isset($_POST['submit'])) {
                         <p>Create Account If You Want Shopping In Holly Saga</p>
                         <?php echo $msg; ?>
                         <form action="" method="post">
-                            <input type="text" class="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['submit'])) { echo $name; } ?>" required >
+                            <input type="text" class="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['submit'])) { echo $name; } ?>" required>
                             <input type="email" class="email" name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['submit'])) { echo $email; } ?>" required>
                             <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
                             <input type="password" class="confirm-password" name="confirm-password" placeholder="Enter Your Confirm Password" required>
@@ -113,8 +115,8 @@ if (isset($_POST['submit'])) {
     <script src="js/jquery.min.js"></script>
     <script>
         function redirectToIndex() {
-            window.location.href = "index.php"; }
+            window.location.href = "index.php";
+        }
     </script>
 </body>
-
 </html>

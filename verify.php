@@ -4,10 +4,10 @@ $msg = "";
 
 if (isset($_GET['code'])) {
     $code = mysqli_real_escape_string($conn, $_GET['code']);
-    $query = mysqli_query($conn, "SELECT * FROM users WHERE code='{$code}'");
+    $query = mysqli_query($conn, "SELECT * FROM users WHERE code='{$code}' AND status='unverified'");
 
     if (mysqli_num_rows($query) == 1) {
-        $query = mysqli_query($conn, "UPDATE users SET code='' WHERE code='{$code}'");
+        $query = mysqli_query($conn, "UPDATE users SET code='', status='verified' WHERE code='{$code}'");
 
         if ($query) {
             $msg = "<div class='alert alert-success'>Account verification has been successfully completed.</div>";
