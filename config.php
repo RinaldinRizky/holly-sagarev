@@ -6,7 +6,7 @@ $password = "Aldingans123456"; // password MySQL yang benar
 $dbname = "u126967367_login"; // nama database
 
 // Membuat koneksi
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$koneksi = mysqli_connect($servername, $username, $password, $dbname);
 
 // Memeriksa koneksi
 if (!$conn) {
