@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
                         <h2>Register Now</h2>
                         <p>Create Account If You Want Shopping In Holly Saga</p>
                         <?php echo $msg; ?>
-                        <form action="" method="post">
+                        <form action="/verify.php" method="post">
                             <input type="text" class="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['submit'])) { echo $name; } ?>" required>
                             <input type="email" class="email" name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['submit'])) { echo $email; } ?>" required>
                             <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
