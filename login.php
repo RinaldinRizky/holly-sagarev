@@ -18,9 +18,9 @@ if (isset($_POST['submit'])) {
         $verif = $qry->fetch_assoc();
         if ($verif['is_verif'] == 1) {
             $_SESSION['user'] = $verif;
-            echo "<script>aler('Login Berhasil');window.location='welcome.php';</script>";
+            echo "<script>alert('Login Berhasil');window.location='welcome.php';</script>";
         } else {
-            echo "<script>aler('Harap Verifikasi Akun Anda!');window.location='login.php';</script>";
+            echo "<script>alert('Harap Verifikasi Akun Anda!');window.location='login.php';</script>";
         }
     } else {
         echo "<script>aler('Email Atau Password Salah');window.location='login.php';</script>";
